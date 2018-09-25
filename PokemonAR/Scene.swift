@@ -8,6 +8,7 @@
 
 import SpriteKit
 import ARKit
+import GameplayKit
 
 class Scene: SKScene {
     
@@ -50,5 +51,24 @@ class Scene: SKScene {
         }
         targetsCreated += 1
         targetCount += 1
+        
+        guard let scenView = self.view as? ARSKView else { return }
+        
+        let random = GKRandomSource.sharedRandom()
+        
+        let rotateX = float4x4(SCNMatrix4MakeRotation(2.0 * Float.pi * random.nextUniform(), 1, 0, 0))
+        
+        let rotateY = float4x4(SCNMatrix4MakeRotation(2.0 * Float.pi * random.nextUniform(), 0, 1, 0))
+        
+        let rotation = simd_mul(rotateX, rotateY)
+        
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -1.5
+        
+        let finalTransform = simd_mul(rotation, translation)
+        
+        let anchor = ARAnchor(transform: finalTransform)
+        
+        scenView.session.add(anchor: anchor)
     }
 }
