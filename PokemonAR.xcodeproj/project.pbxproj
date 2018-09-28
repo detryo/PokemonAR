@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		366420F5215E791F000D05F4 /* QuickDeath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 366420F4215E791F000D05F4 /* QuickDeath.mp3 */; };
 		36BFAE34215926A900C2807A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BFAE33215926A900C2807A /* AppDelegate.swift */; };
 		36BFAE36215926A900C2807A /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 36BFAE35215926A900C2807A /* Scene.sks */; };
 		36BFAE38215926A900C2807A /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BFAE37215926A900C2807A /* Scene.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		366420F4215E791F000D05F4 /* QuickDeath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = QuickDeath.mp3; sourceTree = "<group>"; };
 		36BFAE30215926A900C2807A /* PokemonAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BFAE33215926A900C2807A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36BFAE35215926A900C2807A /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		36BFAE32215926A900C2807A /* PokemonAR */ = {
 			isa = PBXGroup;
 			children = (
+				366420F4215E791F000D05F4 /* QuickDeath.mp3 */,
 				36BFAE33215926A900C2807A /* AppDelegate.swift */,
 				36BFAE35215926A900C2807A /* Scene.sks */,
 				36BFAE37215926A900C2807A /* Scene.swift */,
@@ -128,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				366420F5215E791F000D05F4 /* QuickDeath.mp3 in Resources */,
 				36BFAE36215926A900C2807A /* Scene.sks in Resources */,
 				36BFAE42215926AB00C2807A /* LaunchScreen.storyboard in Resources */,
 				36BFAE3F215926AB00C2807A /* Assets.xcassets in Resources */,
