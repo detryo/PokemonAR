@@ -43,17 +43,12 @@ class Scene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        // Localizar el primer toque del conjunto de toques
-        // Mirar si el toque cae dentro de nuestra vista de AR
         guard let touche = touches.first else { return }
         let location = touche.location(in: self)
         print("The User touche in: (\(location.x), \(location.y))")
         
-        // Buscaremos todos los nodos que han sido tocados por el Usuario
         let hit = nodes(at: location)
         
-        // Cogeremos el primer sprite de la array que nos devuelve el metodo anterior
-        // ( si lo hay ) y animaremos ese pokemon hasta hacerlo desaparecer
         if let sprite = hit.first{
             let scaleOut = SKAction.scale(to: 2, duration: 0.4)
             let fadeOut = SKAction.fadeOut(withDuration: 0.4)
@@ -62,16 +57,12 @@ class Scene: SKScene {
             let sequenceAction = SKAction.sequence([groupAction, remove])
             
             sprite.run(sequenceAction)
-        
-        // Actualizatremos que hay un pokemon menos con una variable targetCount
-            targetCount -= 1
             
+            targetCount -= 1
             if targetsCreated == 25 && targetCount == 0{
                 gameOver()
             }
-            
         }
-        
     }
     
     func createTarget(){
@@ -95,7 +86,7 @@ class Scene: SKScene {
         let rotation = simd_mul(rotateX, rotateY)
         
         var translation = matrix_identity_float4x4
-        translation.columns.3.z = -1.5
+        translation.columns.3.z = 1.5 * random.nextUniform() + 0.5
         
         let finalTransform = simd_mul(rotation, translation)
         
@@ -105,17 +96,13 @@ class Scene: SKScene {
     }
     
     func gameOver(){
-        // Oculatra la remainingLabel
         remainingLabel.removeFromParent()
         
-        // Crear una nueva imagen con la foto de gameOver
         let gameOver = SKSpriteNode.init(imageNamed: "gameover")
         addChild(gameOver)
         
-        // Calcular cuanto tiempo le ha llevado cazar a los pokemons
         let timeTaken = Date().timeIntervalSince(startTime)
         
-        // Mostrar ese tiempo que le ha llevado en pantalla con una nueva etiqueta
         let timeTakenLabel = SKLabelNode.init(text: "It has taken you: \(Int(timeTaken)) seconds")
         timeTakenLabel.fontSize = 40
         timeTakenLabel.color = .white
